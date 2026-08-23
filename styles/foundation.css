@@ -1,0 +1,208 @@
+.route-transition {
+  min-width: 0;
+  animation: orbit-page-enter var(--orbit-motion-slow) var(--orbit-ease-emphasized) both;
+}
+
+@keyframes orbit-page-enter {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 200;
+  padding: 10px 14px;
+  border-radius: var(--orbit-radius-control);
+  background: var(--surface);
+  box-shadow: var(--orbit-shadow-overlay);
+  color: var(--text-strong);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-18px);
+  transition: opacity var(--orbit-motion-fast) ease, transform var(--orbit-motion-medium) var(--orbit-ease-emphasized);
+}
+
+.skip-link:focus {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+:where(button, a, input, [tabindex]):focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 44%, transparent);
+  outline-offset: 3px;
+}
+
+.sidebar-backdrop {
+  display: none;
+}
+
+.empty-route {
+  min-height: calc(100vh - var(--topbar-height));
+  background: var(--canvas);
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.modal-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 140;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(17, 38, 60, 0.34);
+  backdrop-filter: blur(4px);
+  animation: orbit-fade-in var(--orbit-motion-medium) ease both;
+}
+
+.modal-panel {
+  width: min(560px, 100%);
+  max-height: min(720px, calc(100vh - 48px));
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--orbit-radius-card);
+  background: var(--surface);
+  box-shadow: var(--orbit-shadow-overlay);
+  animation: orbit-modal-enter var(--orbit-motion-slow) var(--orbit-ease-emphasized) both;
+}
+
+.modal-header,
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 24px;
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 20px;
+}
+
+.modal-close {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--surface-muted);
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.modal-footer {
+  border-top: 1px solid var(--line-soft);
+}
+
+.tabs-list {
+  display: flex;
+  gap: 6px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.tabs-trigger {
+  position: relative;
+  padding: 12px 16px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.tabs-trigger[aria-selected="true"] {
+  color: var(--accent-strong);
+}
+
+.tabs-trigger[aria-selected="true"]::after {
+  position: absolute;
+  right: 10px;
+  bottom: -1px;
+  left: 10px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  content: "";
+  animation: orbit-tab-indicator var(--orbit-motion-medium) var(--orbit-ease-emphasized) both;
+}
+
+.tabs-panel {
+  padding-top: 20px;
+  animation: orbit-fade-in var(--orbit-motion-medium) ease both;
+}
+
+.donut-copy {
+  animation: orbit-fade-in var(--orbit-motion-medium) ease both;
+}
+
+@keyframes orbit-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes orbit-modal-enter {
+  from { opacity: 0; transform: translateY(10px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes orbit-dropdown-enter {
+  from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes orbit-tab-indicator {
+  from { transform: scaleX(0.35); }
+  to { transform: scaleX(1); }
+}
+
+@media (max-width: 720px) {
+  .sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 38;
+    display: block;
+    border: 0;
+    background: rgba(17, 38, 60, 0.24);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--orbit-motion-medium) ease;
+  }
+
+  .sidebar-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-transition,
+  .modal-layer,
+  .modal-panel,
+  .profile-menu.open,
+  .notification-panel.open,
+  .control-menu.open,
+  .tabs-trigger[aria-selected="true"]::after,
+  .tabs-panel,
+  .donut-copy {
+    animation: none !important;
+  }
+}

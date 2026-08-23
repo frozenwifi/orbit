@@ -1,0 +1,618 @@
+.esims-page {
+  width: 100%;
+  min-width: 0;
+  min-height: calc(100vh - var(--topbar-height));
+  padding: 30px var(--orbit-page-gutter) 0;
+}
+
+.esims-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 70px;
+  gap: 24px;
+  margin-bottom: 10px;
+}
+
+.esims-page-header h1 {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 31px;
+  font-weight: 600;
+  letter-spacing: -0.6px;
+  line-height: 1.25;
+}
+
+.add-esim-button {
+  min-width: 130px;
+  min-height: 48px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.esim-management-card {
+  min-width: 0;
+  min-height: 742px;
+  overflow: visible;
+  border-radius: 29px;
+}
+
+.esim-toolbar {
+  display: grid;
+  grid-template-columns: 294px 46px minmax(20px, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 82px;
+  padding: 23px 30px 14px;
+}
+
+.esim-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  padding: 0 13px;
+  border: 0;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--surface-muted) 86%, var(--line-soft));
+  color: var(--subtle);
+  transition: box-shadow var(--orbit-motion-fast) ease, background var(--orbit-motion-fast) ease;
+}
+
+.esim-search:focus-within {
+  background: var(--surface);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.esim-search .search-icon,
+.esim-search-submit .search-icon {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+}
+
+.esim-search .search-icon {
+  margin-right: 12px;
+}
+
+.esim-search .search-icon::after,
+.esim-search-submit .search-icon::after {
+  position: absolute;
+  right: -4px;
+  bottom: -2px;
+  width: 5px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: currentColor;
+  content: "";
+  transform: rotate(48deg);
+}
+
+.esim-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.esim-search input::placeholder { color: var(--subtle); }
+
+.esim-search > button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.esim-search-submit {
+  width: 46px;
+  min-width: 46px;
+  min-height: 42px;
+  padding: 0;
+  border-radius: 9px;
+  box-shadow: none !important;
+}
+
+.esim-export-button {
+  grid-column: 4;
+  min-height: 40px;
+  border-color: var(--accent);
+  background: var(--surface);
+  color: var(--accent-strong);
+}
+
+.esim-export-icon {
+  font-size: 19px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.esim-table-wrap {
+  width: 100%;
+  min-width: 0;
+  overflow: visible;
+}
+
+.esim-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.esim-table th,
+.esim-table td {
+  height: 60px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--text);
+  font-size: 12px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.esim-table th {
+  height: 52px;
+  color: var(--text-strong);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15px;
+  text-transform: uppercase;
+}
+
+.esim-table th > span:not(.sr-only) {
+  float: right;
+  color: var(--subtle);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.esim-table th:first-child,
+.esim-table td:first-child { width: 15%; padding-left: 30px; }
+.esim-table th:nth-child(2) { width: 15%; }
+.esim-table th:nth-child(3) { width: 17%; }
+.esim-table th:nth-child(4) { width: 15%; }
+.esim-table th:nth-child(5) { width: 15%; }
+.esim-table th:nth-child(6) { width: 18%; }
+.esim-table th:last-child,
+.esim-table td:last-child { width: 60px; padding-right: 30px; }
+
+.esim-table tbody tr {
+  transition: background var(--orbit-motion-fast) ease;
+}
+
+.esim-table tbody tr:hover {
+  background: color-mix(in srgb, var(--accent-pale) 42%, transparent);
+}
+
+.esim-table-link,
+.esim-plan-name-link,
+.esim-workspace-link {
+  max-width: 100%;
+  padding: 3px 0;
+  overflow: hidden;
+  border: 0;
+  background: transparent;
+  color: var(--accent-strong);
+  cursor: pointer;
+  font-size: inherit;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.esim-id-link { color: var(--text); }
+.esim-subtenant-link { font-weight: 500; }
+.esim-table-link:hover,
+.esim-plan-name-link:hover,
+.esim-workspace-link:hover { text-decoration: underline; }
+.esim-table-muted { color: var(--subtle); }
+
+.esim-tag-cell {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.esim-table .orbit-badge,
+.esim-plan-table .orbit-badge {
+  min-height: 28px;
+  font-size: 11px;
+}
+
+.esim-actions-cell { text-align: right !important; }
+
+.esim-delete-button {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--danger);
+  color: white;
+  cursor: pointer;
+  transition: filter var(--orbit-motion-fast) ease, transform var(--orbit-motion-fast) var(--orbit-ease-emphasized);
+}
+
+.esim-delete-button:hover { filter: brightness(0.94); transform: translateY(-1px); }
+.esim-delete-button:active { transform: scale(0.96); }
+
+.esim-delete-glyph {
+  position: relative;
+  display: block;
+  width: 10px;
+  height: 11px;
+  border: 1.5px solid currentColor;
+  border-top: 0;
+  border-radius: 0 0 2px 2px;
+}
+
+.esim-delete-glyph::before {
+  position: absolute;
+  top: -4px;
+  left: -2.5px;
+  width: 12px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: currentColor;
+  box-shadow: 3px -2px 0 -0.3px currentColor;
+  content: "";
+}
+
+.esim-delete-glyph::after {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 1px;
+  height: 6px;
+  background: currentColor;
+  box-shadow: 3px 0 currentColor;
+  content: "";
+  opacity: 0.9;
+}
+
+.esim-table-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 78px;
+  gap: 20px;
+  padding: 13px 30px 20px;
+  color: var(--text);
+  font-size: 12px;
+}
+
+.esim-management-card .collection-state { min-height: 555px; }
+
+/* Superadmin add-eSIM modal */
+.superadmin-esim-modal { width: min(516px, 100%); border-radius: 20px; }
+.superadmin-esim-modal .modal-header { padding: 28px 28px 10px; border-bottom: 0; }
+.superadmin-esim-modal .modal-header h2 { font-size: 21px; }
+.superadmin-esim-modal .modal-body { padding: 4px 28px 24px; }
+.superadmin-esim-modal .modal-footer { padding: 0 28px 28px; border-top: 0; }
+.superadmin-esim-modal-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; gap: 28px; }
+.superadmin-esim-modal-actions .orbit-button { min-height: 48px; }
+.superadmin-esim-form { display: grid; gap: 20px; }
+.superadmin-esim-form > p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.superadmin-plan-field { display: grid; grid-template-columns: minmax(0, 1fr) 124px; align-items: end; gap: 14px; }
+.superadmin-plan-field .view-products-button { min-height: 44px; border-color: transparent; background: var(--accent-pale); color: var(--accent-strong); }
+
+/* Figma-style detail workspace */
+.esim-workspace-page { padding-top: 30px; }
+.esim-detail-workspace { width: 100%; min-width: 0; }
+
+.esim-workspace-identity {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  min-height: 60px;
+  gap: 14px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+}
+
+.esim-workspace-identity:hover strong::before { opacity: 1; transform: translateX(0); }
+.esim-workspace-identity > span:last-child { display: grid; min-width: 0; gap: 2px; }
+.esim-workspace-identity strong { color: var(--muted); font-size: 14px; font-weight: 400; }
+.esim-workspace-identity strong::before { display: inline-block; margin-right: 6px; color: var(--accent-strong); content: "←"; opacity: 0; transform: translateX(4px); transition: opacity var(--orbit-motion-fast) ease, transform var(--orbit-motion-fast) ease; }
+.esim-workspace-identity b { overflow: hidden; color: var(--text-strong); font-size: 21px; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; }
+.esim-workspace-identity em { color: var(--accent-strong); font-size: 13px; font-style: normal; font-weight: 500; }
+
+.esim-workspace-sim-icon {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  gap: 2px;
+  padding-bottom: 17px;
+  flex: 0 0 auto;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--accent) 68%, white);
+  color: white;
+}
+
+.esim-workspace-sim-icon::before {
+  position: absolute;
+  width: 20px;
+  height: 26px;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+  content: "";
+}
+
+.esim-workspace-sim-icon i { position: relative; z-index: 1; width: 2px; height: 8px; border-radius: 1px; background: currentColor; }
+.esim-workspace-sim-icon i:nth-child(2) { height: 11px; }
+.esim-workspace-sim-icon i:nth-child(3) { height: 6px; }
+
+.esim-detail-workspace > .tabs { margin-top: 18px; }
+.esim-detail-workspace .tabs-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-bottom: 3px solid var(--line-soft); }
+.esim-detail-workspace .tabs-trigger { display: inline-flex; align-items: center; justify-content: flex-start; min-width: 0; min-height: 64px; gap: 12px; padding: 12px 4px; color: color-mix(in srgb, var(--subtle) 66%, var(--line)); font-size: 18px; font-weight: 600; }
+.esim-detail-workspace .tabs-trigger:nth-child(2) { justify-content: center; }
+.esim-detail-workspace .tabs-trigger:nth-child(3) { justify-content: flex-end; padding-right: 34px; }
+.esim-detail-workspace .tabs-trigger[aria-selected="true"] { color: var(--accent-strong); }
+.esim-detail-workspace .tabs-trigger[aria-selected="true"]::after { right: 0; bottom: -3px; left: 0; height: 3px; background: var(--accent); }
+.esim-detail-workspace .tabs-trigger-icon { display: grid; place-items: center; width: 24px; height: 24px; flex: 0 0 auto; color: currentColor; font-size: 22px; }
+.esim-detail-workspace .tabs-panel { min-width: 0; padding-top: 31px; }
+
+.esim-summary-workspace { display: grid; min-width: 0; gap: 28px; }
+.esim-summary-top-grid { display: grid; grid-template-columns: minmax(390px, 500px) minmax(0, 1fr); min-width: 0; gap: 28px; }
+.esim-details-card,
+.esim-network-card,
+.esim-data-plans-card,
+.esim-qr-card,
+.esim-instructions-card,
+.esim-tips-card,
+.esim-usage-empty,
+.esim-usage-log-card { min-width: 0; border-radius: 27px; }
+
+.esim-details-card,
+.esim-network-card { min-height: 412px; padding: 18px 20px; }
+.esim-details-card > header,
+.esim-network-card > header,
+.esim-data-plans-card > header,
+.esim-qr-card > header,
+.esim-instructions-card > header,
+.esim-usage-log-card > header { display: flex; align-items: center; justify-content: space-between; min-width: 0; gap: 16px; }
+.esim-details-card h2,
+.esim-network-card h2,
+.esim-data-plans-card h2,
+.esim-qr-card h2,
+.esim-instructions-card h2,
+.esim-tips-card h2,
+.esim-usage-log-card h2 { margin: 0; color: var(--text-strong); font-size: 21px; font-weight: 600; }
+.esim-card-actions { display: flex; align-items: center; gap: 10px; }
+.esim-edit-button { display: grid; place-items: center; width: 42px; height: 42px; padding: 0; border: 0; border-radius: 50%; background: var(--accent); color: white; cursor: pointer; font-size: 21px; }
+
+.esim-details-list { display: grid; gap: 0; margin: 16px 0 0; }
+.esim-details-list > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; min-height: 44px; gap: 14px; }
+.esim-details-list dt { color: var(--subtle); font-size: 13px; }
+.esim-details-list dt span { margin-left: 3px; color: var(--muted); font-size: 13px; }
+.esim-details-list dd { max-width: 260px; margin: 0; overflow: hidden; color: var(--text-strong); font-size: 14px; text-align: right; text-overflow: ellipsis; white-space: nowrap; }
+
+.esim-network-card { padding: 18px 20px 12px; overflow: hidden; }
+.esim-network-card > header { display: grid; grid-template-columns: minmax(90px, 1fr) auto auto; }
+.esim-network-legend { display: inline-flex; align-items: center; gap: 9px; color: var(--text); font-size: 13px; }
+.esim-network-legend i { width: 16px; height: 16px; margin-left: 22px; border-radius: 50%; }
+.esim-network-legend i:first-child { margin-left: 0; }
+.esim-network-legend .data { background: #a900ff; }
+.esim-network-legend .calls { background: #2eb8f3; }
+.esim-network-legend .sms { background: #31cd5a; }
+.esim-year-select { display: inline-flex; align-items: center; min-height: 40px; gap: 10px; padding: 0 14px; border: 1px solid var(--line-soft); border-radius: 10px; background: var(--surface); color: var(--muted); cursor: pointer; font-size: 13px; }
+.esim-network-chart { display: grid; grid-template-columns: 42px minmax(0, 1fr); height: 322px; margin-top: 9px; }
+.esim-network-y-axis { display: flex; justify-content: space-between; flex-direction: column; padding: 21px 8px 32px 0; color: #9badc8; font-size: 12px; text-align: right; }
+.esim-network-plot { display: grid; grid-template-rows: minmax(0, 1fr) 24px; min-width: 0; }
+.esim-network-plot svg { width: 100%; height: 100%; overflow: visible; }
+.esim-chart-grid line { stroke: var(--line-soft); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.esim-chart-line { fill: none; stroke-linecap: round; stroke-width: 6; vector-effect: non-scaling-stroke; }
+.esim-chart-line.data { stroke: #a900ff; }
+.esim-chart-line.calls { stroke: #2eb8f3; }
+.esim-chart-line.sms { stroke: #31cd5a; }
+.esim-network-x-axis { display: grid; grid-template-columns: repeat(12, 1fr); color: var(--text); font-size: 11px; text-align: center; }
+
+.esim-data-plans-card { min-height: 304px; overflow: hidden; }
+.esim-data-plans-card > header { min-height: 84px; padding: 17px 30px 10px; }
+.esim-plan-table-wrap { width: 100%; min-width: 0; }
+.esim-plan-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.esim-plan-table th,
+.esim-plan-table td { height: 60px; padding: 0 12px; border-bottom: 1px solid var(--line-soft); color: var(--text); font-size: 11px; text-align: left; vertical-align: middle; }
+.esim-plan-table th { height: 48px; color: var(--text-strong); font-size: 10px; text-transform: uppercase; }
+.esim-plan-table th:first-child,
+.esim-plan-table td:first-child { width: 14%; padding-left: 30px; }
+.esim-plan-table th:nth-child(2) { width: 16%; }
+.esim-plan-table th:nth-child(3) { width: 14%; }
+.esim-plan-table th:nth-child(4) { width: 16%; }
+.esim-plan-table th:nth-child(5) { width: 10%; }
+.esim-plan-table th:nth-child(6),
+.esim-plan-table th:nth-child(7) { width: 13%; }
+.esim-plan-table th:last-child,
+.esim-plan-table td:last-child { width: 58px; padding-right: 30px; text-align: right; }
+.esim-plan-usage { display: grid; width: 128px; gap: 8px; color: var(--muted); font-size: 10px; }
+
+/* Activation */
+.esim-activation-grid { display: grid; grid-template-columns: minmax(390px, 500px) minmax(0, 1fr); min-width: 0; gap: 28px; }
+.esim-qr-card { min-height: 778px; padding: 14px 20px 20px; }
+.esim-qr-card > header { min-height: 52px; }
+.esim-qr-code { display: grid; grid-template-columns: repeat(29, 1fr); width: min(100%, 440px); aspect-ratio: 1; margin: 8px auto 22px; padding: 14px; border: 1px solid #edf0f3; background: white; }
+.esim-qr-code i { display: block; background: white; }
+.esim-qr-code i.filled { background: #000; }
+.esim-qr-card > p { margin: 0 0 22px; color: var(--text); font-size: 12px; line-height: 1.55; }
+.esim-activation-values { display: grid; gap: 19px; margin: 0 0 24px; }
+.esim-activation-values > div { display: grid; grid-template-columns: 140px minmax(0, 1fr); align-items: center; gap: 12px; }
+.esim-activation-values dt { color: var(--subtle); font-size: 13px; }
+.esim-activation-values dd { min-width: 0; margin: 0; overflow: hidden; color: var(--text-strong); font-size: 12px; text-align: right; text-overflow: ellipsis; white-space: nowrap; }
+.esim-activation-values button { max-width: 100%; padding: 2px 0; overflow: hidden; border: 0; background: transparent; color: inherit; cursor: pointer; text-overflow: ellipsis; white-space: nowrap; }
+.esim-help-button { width: 100%; }
+.esim-activation-copy { display: grid; grid-template-rows: minmax(0, 1fr) auto; min-width: 0; gap: 28px; }
+.esim-instructions-card { min-height: 556px; padding: 14px 20px 22px; }
+.esim-instructions-card > header { min-height: 52px; }
+.esim-instruction-block { margin-top: 18px; color: var(--text); }
+.esim-instruction-block h3 { margin: 0 0 4px; color: var(--muted); font-size: 15px; }
+.esim-instruction-block ul,
+.esim-tips-card ul { margin: 0; padding-left: 22px; color: var(--muted); font-size: 13px; line-height: 1.55; }
+.esim-tips-card { min-height: 190px; padding: 28px 20px; }
+.esim-tips-card h2 { margin-bottom: 9px; font-size: 16px; }
+
+/* Usage logs */
+.esim-usage-empty { display: grid; justify-items: center; min-height: 506px; align-content: center; padding: 36px; text-align: center; }
+.esim-usage-empty-icon { position: relative; display: grid; width: 74px; height: 80px; margin-bottom: 21px; border-radius: 14px; background: color-mix(in srgb, var(--line) 55%, var(--surface)); }
+.esim-usage-empty-icon i::before,
+.esim-usage-empty-icon i::after { position: absolute; left: 16px; width: 32px; height: 7px; border-radius: 4px; background: var(--surface); content: ""; }
+.esim-usage-empty-icon i::before { top: 20px; }
+.esim-usage-empty-icon i::after { top: 39px; width: 19px; }
+.esim-usage-empty-icon b { position: absolute; right: -14px; bottom: -12px; display: grid; place-items: center; width: 43px; height: 43px; border-radius: 50%; background: color-mix(in srgb, var(--line) 68%, var(--surface)); color: white; font-size: 25px; }
+.esim-usage-empty h2 { margin: 0; color: var(--muted); font-size: 23px; }
+.esim-usage-empty p { max-width: 520px; margin: 16px 0 0; color: var(--subtle); font-size: 13px; line-height: 1.6; }
+.esim-usage-log-card { overflow: hidden; }
+.esim-usage-log-card > header { min-height: 92px; padding: 22px 30px 16px; }
+.esim-usage-log-card > header p { margin: 7px 0 0; color: var(--muted); font-size: 12px; }
+.esim-usage-overview { display: grid; gap: 12px; margin: 0 30px 24px; padding: 18px; border-radius: 14px; background: color-mix(in srgb, var(--accent-pale) 60%, var(--surface)); color: var(--muted); font-size: 12px; }
+.esim-usage-overview strong { color: var(--text-strong); font-size: 20px; }
+.esim-usage-table-wrap { width: 100%; min-width: 0; }
+.esim-usage-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.esim-usage-table th,
+.esim-usage-table td { height: 60px; padding: 0 20px; border-bottom: 1px solid var(--line-soft); color: var(--text); font-size: 12px; text-align: left; }
+.esim-usage-table th { height: 48px; color: var(--muted); font-size: 10px; text-transform: uppercase; }
+
+.esims-page > .footer { padding-top: 70px; }
+
+@media (max-width: 1320px) {
+  .esim-table th,
+  .esim-table td { padding-right: 10px; padding-left: 10px; font-size: 11px; }
+  .esim-table th:first-child,
+  .esim-table td:first-child { padding-left: 22px; }
+  .esim-table th:last-child,
+  .esim-table td:last-child { padding-right: 22px; }
+  .esim-summary-top-grid,
+  .esim-activation-grid { grid-template-columns: minmax(350px, 410px) minmax(0, 1fr); gap: 20px; }
+  .esim-summary-workspace,
+  .esim-activation-copy { gap: 20px; }
+  .esim-network-card > header { grid-template-columns: 1fr auto; }
+  .esim-network-legend { grid-row: 2; grid-column: 1 / -1; justify-self: center; }
+}
+
+@media (max-width: 1100px) {
+  .esim-table-wrap { overflow: visible; padding: 0 18px 18px; }
+  .esim-table { display: block; }
+  .esim-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+  .esim-table tbody { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .esim-table tr { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); min-width: 0; padding: 14px 16px; border: 1px solid var(--line-soft); border-radius: 16px; background: var(--surface); }
+  .esim-table td,
+  .esim-table td:first-child,
+  .esim-table td:last-child { display: grid; align-content: start; width: auto; height: auto; min-width: 0; gap: 6px; padding: 9px 6px; border: 0; text-align: left !important; }
+  .esim-table td::before { color: var(--subtle); content: attr(data-label); font-size: 9px; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; }
+  .esim-table td:first-child { grid-column: 1 / -1; border-bottom: 1px solid var(--line-soft); }
+  .esim-table td:last-child { grid-column: 1 / -1; justify-items: end; }
+  .esim-summary-top-grid,
+  .esim-activation-grid { grid-template-columns: 1fr; }
+  .esim-details-card,
+  .esim-network-card { min-height: 0; }
+  .esim-qr-card { min-height: 0; }
+}
+
+@media (max-width: 980px) {
+  .esims-page { padding-right: 28px; padding-left: 28px; }
+  .esim-detail-workspace .tabs-trigger { font-size: 15px; }
+  .esim-detail-workspace .tabs-trigger:nth-child(3) { padding-right: 4px; }
+}
+
+@media (max-width: 760px) {
+  .esims-page { padding: 22px 18px 0; }
+  .esims-page-header { align-items: stretch; flex-direction: column; min-height: 0; margin-bottom: 22px; }
+  .esims-page-header h1 { font-size: 27px; }
+  .add-esim-button { width: 100%; }
+  .esim-management-card { min-height: 0; }
+  .esim-toolbar { grid-template-columns: minmax(0, 1fr) 46px; padding: 18px 18px 16px; }
+  .esim-export-button { grid-row: 2; grid-column: 1 / -1; width: 100%; }
+  .esim-table tbody { grid-template-columns: 1fr; }
+  .esim-table-footer { align-items: center; flex-direction: column; padding: 20px; }
+  .superadmin-plan-field { grid-template-columns: 1fr; }
+  .superadmin-esim-modal-actions { gap: 12px; }
+  .esim-workspace-identity { min-height: 54px; }
+  .esim-workspace-sim-icon { width: 52px; height: 52px; padding-bottom: 14px; border-radius: 14px; }
+  .esim-workspace-identity b { font-size: 17px; }
+  .esim-detail-workspace > .tabs { margin-top: 14px; }
+  .esim-detail-workspace .tabs-trigger { justify-content: center !important; min-height: 58px; gap: 6px; padding: 8px 3px !important; font-size: 12px; text-align: center; }
+  .esim-detail-workspace .tabs-trigger-icon { display: none; }
+  .esim-detail-workspace .tabs-panel { padding-top: 20px; }
+  .esim-details-card,
+  .esim-network-card,
+  .esim-qr-card,
+  .esim-instructions-card,
+  .esim-tips-card { border-radius: 20px; }
+  .esim-details-card > header { align-items: flex-start; flex-direction: column; }
+  .esim-card-actions { width: 100%; }
+  .esim-card-actions .orbit-button { flex: 1; }
+  .esim-details-list > div { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .esim-details-list dd { white-space: normal; }
+  .esim-network-card > header { grid-template-columns: 1fr auto; }
+  .esim-network-legend { justify-self: start; max-width: 100%; overflow: hidden; }
+  .esim-network-legend i { margin-left: 9px; }
+  .esim-network-chart { height: 270px; }
+  .esim-network-x-axis span:nth-child(even) { visibility: hidden; }
+  .esim-data-plans-card > header { padding: 18px; }
+  .esim-plan-table-wrap,
+  .esim-usage-table-wrap { padding: 0 14px 16px; }
+  .esim-plan-table,
+  .esim-plan-table tbody,
+  .esim-plan-table tr,
+  .esim-usage-table,
+  .esim-usage-table tbody,
+  .esim-usage-table tr { display: block; }
+  .esim-plan-table thead,
+  .esim-usage-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+  .esim-plan-table tr,
+  .esim-usage-table tr { padding: 12px; border: 1px solid var(--line-soft); border-radius: 14px; }
+  .esim-plan-table td,
+  .esim-plan-table td:first-child,
+  .esim-plan-table td:last-child,
+  .esim-usage-table td { display: grid; grid-template-columns: 112px minmax(0, 1fr); align-items: center; width: auto; height: auto; min-height: 42px; gap: 10px; padding: 7px; border: 0; text-align: left; }
+  .esim-plan-table td::before,
+  .esim-usage-table td::before { color: var(--subtle); content: attr(data-label); font-size: 9px; font-weight: 600; text-transform: uppercase; }
+  .esim-plan-table td:last-child { justify-items: end; }
+  .esim-plan-usage { width: 100%; }
+  .esim-qr-card,
+  .esim-instructions-card,
+  .esim-tips-card { padding-right: 18px; padding-left: 18px; }
+  .esim-qr-code { padding: 10px; }
+  .esim-activation-values > div { grid-template-columns: 1fr; }
+  .esim-activation-values dd { text-align: left; }
+  .esim-instructions-card > header { align-items: flex-start; flex-direction: column; }
+  .esim-instructions-card > header .orbit-button { width: 100%; }
+  .esim-usage-log-card > header { align-items: flex-start; flex-direction: column; padding: 22px 20px; }
+  .esim-usage-overview { margin-right: 20px; margin-left: 20px; }
+  .esim-usage-empty { min-height: 420px; padding: 28px 20px; }
+  .esims-page > .footer { padding-top: 44px; font-size: 14px; }
+}
+
+@media (max-width: 480px) {
+  .esim-table tr { grid-template-columns: 1fr; }
+  .esim-table td:first-child,
+  .esim-table td:last-child { grid-column: 1; }
+  .esim-details-list > div { grid-template-columns: 1fr; padding: 9px 0; }
+  .esim-details-list dd { max-width: 100%; text-align: left; }
+  .esim-network-card { padding-right: 12px; padding-left: 12px; }
+  .esim-network-card > header { grid-template-columns: 1fr; }
+  .esim-year-select { justify-self: start; }
+  .esim-network-legend { grid-row: auto; grid-column: auto; flex-wrap: wrap; }
+  .esim-network-chart { grid-template-columns: 30px minmax(0, 1fr); }
+  .esim-workspace-identity strong::before { display: none; }
+}

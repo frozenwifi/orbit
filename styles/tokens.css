@@ -1,0 +1,82 @@
+:root {
+  color-scheme: light;
+
+  /* Orbit color tokens */
+  --orbit-color-brand: #2ec1ff;
+  --orbit-color-brand-strong: #03a9f4;
+  --orbit-color-brand-soft: #def2ff;
+  --orbit-color-brand-pale: #eff9ff;
+  --orbit-color-canvas: #f4f9fc;
+  --orbit-color-surface: #ffffff;
+  --orbit-color-surface-muted: #f8fbfd;
+  --orbit-color-text: #3d434f;
+  --orbit-color-text-strong: #343a47;
+  --orbit-color-text-muted: #6c768b;
+  --orbit-color-text-subtle: #8a93a6;
+  --orbit-color-border: #e4e7ed;
+  --orbit-color-border-soft: #edeef1;
+  --orbit-color-success: #00cc77;
+  --orbit-color-danger: #ff536d;
+  --orbit-color-warning: #e7a62e;
+
+  /* Orbit geometry tokens */
+  --orbit-shell-sidebar-width: 330px;
+  --orbit-shell-topbar-height: 80px;
+  --orbit-page-gutter: 50px;
+  --orbit-radius-control: 10px;
+  --orbit-radius-card: 25px;
+  --orbit-shadow-card: 0 9px 28px rgba(17, 38, 60, 0.045);
+  --orbit-shadow-overlay: 0 18px 55px rgba(17, 38, 60, 0.14);
+
+  /* Orbit motion tokens */
+  --orbit-motion-fast: 160ms;
+  --orbit-motion-medium: 240ms;
+  --orbit-motion-slow: 380ms;
+  --orbit-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --orbit-ease-emphasized: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Backwards-compatible semantic aliases used by Orbit components */
+  --accent: var(--orbit-color-brand);
+  --accent-strong: var(--orbit-color-brand-strong);
+  --accent-soft: var(--orbit-color-brand-soft);
+  --accent-pale: var(--orbit-color-brand-pale);
+  --canvas: var(--orbit-color-canvas);
+  --surface: var(--orbit-color-surface);
+  --surface-raised: var(--orbit-color-surface);
+  --surface-muted: var(--orbit-color-surface-muted);
+  --text: var(--orbit-color-text);
+  --text-strong: var(--orbit-color-text-strong);
+  --muted: var(--orbit-color-text-muted);
+  --subtle: var(--orbit-color-text-subtle);
+  --line: var(--orbit-color-border);
+  --line-soft: var(--orbit-color-border-soft);
+  --success: var(--orbit-color-success);
+  --danger: var(--orbit-color-danger);
+  --warning: var(--orbit-color-warning);
+  --sidebar: var(--orbit-color-surface);
+  --topbar: var(--orbit-color-surface);
+  --card-shadow: var(--orbit-shadow-card);
+  --sidebar-width: var(--orbit-shell-sidebar-width);
+  --topbar-height: var(--orbit-shell-topbar-height);
+  --ease: var(--orbit-ease-emphasized);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --orbit-color-canvas: #1c1c1c;
+  --orbit-color-surface: #333333;
+  --orbit-color-surface-muted: #2b2b2b;
+  --orbit-color-text: #d6d6d6;
+  --orbit-color-text-strong: #f1f1f1;
+  --orbit-color-text-muted: #a4a4a4;
+  --orbit-color-text-subtle: #868686;
+  --orbit-color-border: #4b4b4b;
+  --orbit-color-border-soft: #414141;
+  --orbit-color-warning: #f5be58;
+  --orbit-color-brand-pale: #3b4246;
+  --orbit-color-brand-soft: #3b5966;
+  --sidebar: #282828;
+  --topbar: #252525;
+  --surface-raised: #333333;
+  --card-shadow: none;
+}
