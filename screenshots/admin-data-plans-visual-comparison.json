@@ -1,0 +1,28 @@
+{
+  "light": {
+    "reference": "/Users/omarparreira/Documents/Codex/2026-08-21/h/work/admin-data-plans-light-reference.png",
+    "implementation": "admin-data-plans-light.png",
+    "comparison": "admin-data-plans-light-comparison.png",
+    "contentCrop": [
+      330,
+      80,
+      1920,
+      930
+    ],
+    "meanAbsolutePixelDifference": 4.0684,
+    "comparisonHeight": 1338
+  },
+  "dark": {
+    "reference": "/Users/omarparreira/Documents/Codex/2026-08-21/h/work/admin-data-plans-dark-reference.png",
+    "implementation": "admin-data-plans-dark.png",
+    "comparison": "admin-data-plans-dark-comparison.png",
+    "contentCrop": [
+      330,
+      80,
+      1920,
+      930
+    ],
+    "meanAbsolutePixelDifference": 6.1648,
+    "comparisonHeight": 1338
+  }
+}

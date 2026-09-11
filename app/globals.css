@@ -8,3 +8,12 @@
 @import "../styles/networks.css";
 @import "../styles/operations.css";
 @import "../styles/api-keys.css";
+@import "../styles/subtenants.css";
+@import "../styles/team.css";
+@import "../styles/auth.css";
+@import "../styles/admin.css";
+@import "../styles/admin-esims.css";
+@import "../styles/admin-customers.css";
+@import "../styles/admin-billing.css";
+@import "../styles/admin-networks.css";
+@import "../styles/admin-data-plans.css";

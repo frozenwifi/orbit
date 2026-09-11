@@ -1,5 +1,26 @@
 # Orbit acceptance report
 
+## Admin eSIM Figma parity acceptance
+
+The `/admin/esims` phase was implemented from the 11 light and 11 dark states isolated from the supplied green Admin `eSIMs tab.svg` and `eSIMs tab-3.svg` exports. The blue Superadmin exports were excluded.
+
+- Default catalog: eSIMs heading, green Add eSIM, compact Search/separate submit, Export excel, exact ID/DATE ASSIGNED/ESIM ICCID/ESIM STATUS/TOTAL USAGE/CUSTOMER/ESIM TAG structure, red remove control, pagination and footer.
+- New eSIM: exact three-field order, View products control, validation messages, Cancel/Save geometry and full-shell portal overlay. The flow resolves only organization-owned plans/customers and creates a canonical eSIM through `DomainProvider`.
+- Workspace: canonical query-backed Summary, Activation and eSIM usage logs tabs; exact identity treatment; details/network chart/data-plan cards; extracted Figma QR; instructions/tips; and supplied empty-log state.
+- Actions: tag edit, block, reactivate and remove are guarded by organization scope. Confirmation layers retain the Figma modal geometry; remove renders the supplied success notice.
+- Supplied loading: `/admin/esims?state=loading` reproduces the full-frame spinner/`Loading..`/footer treatment.
+- Desktop geometry was measured in the optimized app: New eSIM `702,185,516 × 499`; invalid New eSIM `702,185,516 × 564`; confirmation `702,185,516 × 257`; detail tabs `380,180,1490 × 75`; and Summary cards beginning at the Figma `y=286` baseline. The delete-success notice measures `388 × 80` at `1482,90`.
+- Responsive QA at desktop (`1920px`), tablet (`1280px`) and mobile (`390px`) reported no document horizontal overflow. The mobile catalog becomes labelled cards, the Admin navigation opens as a `280px` accessible drawer, and the activation QR remains bounded at `243.5px` inside the mobile viewport.
+- Light and dark catalog/workspace/dialog states use the green Admin palettes; persisted theme selection remains shared with the approved shell.
+- Keyboard checks cover modal initial focus, forward/reverse Tab trapping, Escape dismissal, Add eSIM trigger-focus restoration, tab activation and visible focus states. Reduced-motion behavior inherits the Admin shell override.
+- Search, search-no-results, Excel export and both pagination pages were exercised. Page 2 renders the remaining three seeded records and reports `Showing 10 to 12 of 12 entries`.
+- Add eSIM created scoped record `ES-9900` with the selected organization-owned plan/customer; the repository projection immediately surfaced its generated ICCID, `Lena Ortiz` relationship and `QA Admin` tag in the catalog.
+- Direct Summary/Activation/usage URLs reconstruct the selected tab. Block, reactivate and remove mutations were exercised against the organization-guarded commands.
+- `/admin`, `/`, and Superadmin `/esims` were reopened from the same production build at desktop width. Each retained its approved heading, reported zero horizontal overflow and produced no runtime console messages.
+- TypeScript (`tsc --noEmit`) and the optimized Next.js build pass; the final output contains 19 routes and `/admin/esims` is statically generated.
+
+All 11 supplied light states and all 11 dark states are stored under `screenshots/admin-esims-*`. `admin-esims-light-comparison-sheet.png` and `admin-esims-dark-comparison-sheet.png` pair every exact Figma crop with its corresponding production capture. Protected-route captures are retained as `admin-dashboard-regression-final.png`, `superadmin-dashboard-regression-final.png` and `superadmin-esims-regression-final.png`.
+
 ## Visual regression
 
 Dashboard v1 was captured before migration and again from the production Next.js build at the same 1920 × 1397 CSS viewport.
@@ -338,3 +359,265 @@ API Keys phase files:
 - `screenshots/api-keys-new-application-modal-comparison.png`
 - `screenshots/api-keys-created-success-comparison.png`
 - `screenshots/api-keys-remove-confirmation-comparison.png`
+
+## Superadmin Subtenants Figma parity acceptance
+
+The Subtenants route family was implemented from the ten blue/light Superadmin frames isolated from `Subtenants.svg`; the dark export supplies theme parity. No unrelated green Admin screen was used as a presentation reference.
+
+- Brand-VNO, Business roaming and Influencers reproduce the compact Figma title/action, search/export toolbar, table density, pagination and Nova/Orbit footer. Each creation dialog uses the supplied modal geometry and feeds the shared in-session domain state.
+- The Brand-VNO workspace resolves organization details, recent eSIM orders, customers and influencers through repository relationships. Edit, block/unblock and delete/archive actions update the canonical entity; destructive actions use the supplied confirmation treatment.
+- Sidebar child routes, detail links, browser Back/Forward and direct URLs are stable. The scoped API child is intentionally limited to the title/footer state represented by the supplied information architecture rather than inventing an API product surface.
+- Desktop, mobile and dark-mode checks reported no document horizontal overflow. Search, pagination, all three creation flows, success state, block/unblock, delete confirmation, modal autofocus and Escape dismissal were exercised in the browser with an empty runtime error log.
+- Dashboard, eSIMs, Customers, Data Plans, Networks, Operations and API Keys were reopened from the same application shell and retained their approved headings, geometry and behavior.
+- `pnpm typecheck` and the optimized `next build` pass. The production output contains 16 routes, including all five Subtenants destinations and the dynamic Brand-VNO detail route.
+
+Subtenants phase files:
+
+- `screenshots/subtenants-brand-vno.png`
+- `screenshots/subtenants-business-roaming.png`
+- `screenshots/subtenants-influencers.png`
+- `screenshots/subtenants-new-subtenant-modal.png`
+- `screenshots/subtenants-business-roaming-modal.png`
+- `screenshots/subtenants-add-influencer-modal.png`
+- `screenshots/subtenants-success.png`
+- `screenshots/subtenants-brand-vno-detail.png`
+- `screenshots/subtenants-blocked-state.png`
+- `screenshots/subtenants-delete-confirmation.png`
+- `screenshots/subtenants-brand-vno-comparison.png`
+- `screenshots/subtenants-business-roaming-comparison.png`
+- `screenshots/subtenants-influencers-comparison.png`
+- `screenshots/subtenants-new-subtenant-modal-comparison.png`
+- `screenshots/subtenants-business-roaming-modal-comparison.png`
+- `screenshots/subtenants-add-influencer-modal-comparison.png`
+- `screenshots/subtenants-success-comparison.png`
+- `screenshots/subtenants-brand-vno-detail-comparison.png`
+- `screenshots/subtenants-blocked-state-comparison.png`
+- `screenshots/subtenants-delete-confirmation-comparison.png`
+
+## Superadmin Team Figma parity acceptance
+
+The `/team` implementation was audited against the supplied Superadmin exports before coding. `Users.svg` contains the light default, New user and remove-user frames; `Team-2.svg` contains the equivalent dark frames. The green Admin `Team.svg` and `Team-1.svg` boards were excluded.
+
+- TypeScript validation and the optimized Next.js build pass. The production output now contains 17 routes and `/team` is statically generated.
+- The light default catalog measures `380, 180, 1490 × 742` at the exact 1920 × 1397 CSS viewport. It reproduces Team heading/action placement, separate search control, compact NAME/EMAIL/USER TYPE table, recovery/edit/remove actions, pagination, entries copy and Nova/Orbit footer.
+- The New user dialog measures `702, 185, 516 × 768` in the light frame and `702, 197, 516 × 768` in the dark frame. Name, Email, Password, Admin/Manager role, four permission switches and Cancel/Save match the supplied order and geometry.
+- The destructive confirmation measures `516 × 217`, reproduces the supplied immediate/permanent warning copy, and uses the Figma Cancel/Confirm treatment. Cancel restores focus; Confirm removes the canonical Team user.
+- Creating a typed mock user updated the shared collection from 12 to 13 records. Editing reused the same form and retained the user's canonical values; inline role changes, permission toggles and the deterministic recovery command all updated shared in-session state. Removing the created user restored the original 12-record catalog.
+- Search matched by name/email/role and rendered a zero-row result with correct entries copy. Clearing restored both pages; page 2 rendered the remaining records with `aria-current="page"` on its control.
+- Modal dialog focus, forward and reverse focus wrapping, Escape dismissal and trigger-focus restoration were exercised. Permission switches expose `role="switch"` and `aria-checked`; every row action has an accessible name.
+- Desktop light/dark and 390 × 844 mobile light/dark checks reported zero document horizontal overflow. The mobile table converts to labelled management cards and the 358px-wide user dialog remains inside the 390px viewport.
+- Dashboard, eSIMs, Data Plans, Networks, Operations, API Keys, Customers, Brand-VNO, Business roaming and Influencers were reopened from the final production build at 1920 × 1397. All retained their approved heading and reported zero horizontal overflow. The final browser runtime log was empty.
+
+Team phase files:
+
+- `screenshots/team-users-default.png`
+- `screenshots/team-users-new-user.png`
+- `screenshots/team-users-remove-user.png`
+- `screenshots/team-users-default-dark.png`
+- `screenshots/team-users-new-user-dark.png`
+- `screenshots/team-users-remove-user-dark.png`
+- `screenshots/team-users-default-comparison.png`
+- `screenshots/team-users-new-user-comparison.png`
+- `screenshots/team-users-remove-user-comparison.png`
+- `screenshots/team-users-default-dark-comparison.png`
+- `screenshots/team-users-new-user-dark-comparison.png`
+- `screenshots/team-users-remove-user-dark-comparison.png`
+- `screenshots/regression-dashboard-after-team.png`
+- `screenshots/regression-esims-after-team.png`
+- `screenshots/regression-data-plans-after-team.png`
+- `screenshots/regression-networks-after-team.png`
+- `screenshots/regression-operations-after-team.png`
+- `screenshots/regression-api-keys-after-team.png`
+- `screenshots/regression-customers-after-team.png`
+- `screenshots/regression-subtenants-brand-vno-after-team.png`
+- `screenshots/regression-subtenants-business-roaming-after-team.png`
+- `screenshots/regression-subtenants-influencers-after-team.png`
+
+## Admin Customers Figma parity acceptance
+
+The `/admin/customers` implementation was audited against all five 1920 × 1397 light frames in `Customers tab.svg` and all five dark counterparts in `Customers tab-1.svg`. The Superadmin Customer route and all blue exports were excluded as visual references.
+
+- The desktop list measures the approved `330px` sidebar, `80px` top bar, `50px` content gutters, `380px` content origin, `1490px` card width and approximately `742px` catalog height. It reproduces the exact notice copy, separated Search control, Export excel action, six supplied data columns, 60px rows, edit/delete actions, entries copy, pagination and footer placement.
+- New Customer measures `702, 185, 516 × 594`; delete confirmation measures `702, 185, 516 × 264`. Both use the shared portal dialog with panel announcement, forward/reverse Tab trapping, Escape dismissal, body scroll locking and trigger-focus restoration.
+- Add and edit update canonical organization-scoped Customers through provider commands. Delete removes the Customer, detaches its eSIMs to the organization root, dismisses the dialog and renders the supplied success copy. Search, no-results, pagination and Export excel invocation were exercised.
+- Customer detail is URL-backed with `?customer=…`; direct load plus browser Back/Forward reconstruct list/detail state. The details card, canonical eSIM projection, eSIM-to-`/admin/esims` navigation, date-range control and typed green expense chart were exercised.
+- The 390 × 844 light/dark list, modal and detail checks report zero document horizontal overflow. The desktop light/dark checks also report zero overflow. Modal width remains within the mobile viewport and each detail card resolves to the available content width.
+- Direct Figma-to-production comparisons cover all ten supplied light/dark states. Mean absolute channel deltas are `1.630–6.665 / 255`; the form and confirmation dialogs measure `1.630–3.673 / 255`, with matching overlay and panel geometry.
+- `pnpm typecheck` and the optimized Next.js build pass across all 20 routes. The runtime console error log and failed-response log are empty. Protected Admin Dashboard, Admin eSIMs, Superadmin Dashboard and Superadmin eSIMs routes were recaptured with zero document overflow by `work/admin-customers-visual-qa.mjs`.
+
+Admin Customers phase files:
+
+- `screenshots/admin-customers-list-light.png`
+- `screenshots/admin-customers-new-modal-light.png`
+- `screenshots/admin-customers-delete-confirmation-light.png`
+- `screenshots/admin-customers-delete-success-light.png`
+- `screenshots/admin-customers-detail-light.png`
+- `screenshots/admin-customers-list-dark.png`
+- `screenshots/admin-customers-new-modal-dark.png`
+- `screenshots/admin-customers-delete-confirmation-dark.png`
+- `screenshots/admin-customers-delete-success-dark.png`
+- `screenshots/admin-customers-detail-dark.png`
+- `screenshots/admin-customers-mobile-light.png`
+- `screenshots/admin-customers-mobile-dark.png`
+- `screenshots/admin-customers-*-comparison.png`
+- `screenshots/regression-admin-dashboard-after-admin-customers.png`
+- `screenshots/regression-admin-esims-after-admin-customers.png`
+- `screenshots/regression-superadmin-dashboard-after-admin-customers.png`
+- `screenshots/regression-superadmin-esims-after-admin-customers.png`
+
+## Admin Dashboard Figma parity acceptance
+
+The separate `/admin` application was implemented from the green Admin dashboard exports only. `Dashboard tab-1.svg` supplied the populated and empty light states, and `Dashboard tab-3.svg` supplied the populated and empty dark states. The blue Superadmin dashboard exports were explicitly excluded from the Admin presentation audit.
+
+- The production desktop composition was verified at the Figma viewport of `1920 × 1397`: `330px` sidebar, `80px` top bar, `50px` content gutters, `924 × 387` Sales reports card, `536 × 544` Earnings card, three KPI cards and the exact recent-orders table/footer composition.
+- The Admin shell has its own logo, navigation order, labels, icons, active/expanded states, top-bar search and Jane Doe account controls. It is route-gated beneath `/admin`; existing Superadmin routes continue through the original shell unchanged.
+- Populated and empty dashboard data states were checked in light and dark mode. `/admin?state=empty` exposes the supplied empty-frame state without adding visible product functionality.
+- Sales/recent-order date selectors, earnings period selection, dashboard search, table pagination, report export feedback, theme switching, notifications/profile menus and expandable Networks/API navigation were exercised in the production browser.
+- Search was regression-tested after navigating to page 2 and correctly reset pagination before rendering the matching order.
+- Desktop (`1920 × 1397`), tablet (`805px`) and mobile (`375px`) light/dark checks reported zero document horizontal overflow. Mobile navigation is an accessible off-canvas panel and the order table converts to labelled cards.
+- Controls use native buttons/inputs, explicit accessible names, shared keyboard-aware dropdown behavior, visible focus states and reduced-motion media handling. No Next.js error overlay or runtime console error was present during the final browser pass.
+- The optimized production build succeeds with 18 routes; `/admin` is a dynamic server route because it reads the supplied state query. TypeScript validation passes.
+- Superadmin `/`, `/esims` and `/api-keys` were reopened from the same production build at `1920px`; their approved headings, shell geometry and zero-overflow behavior were retained. The Dashboard before/after capture is visually unchanged apart from the chart's capture-time animation position and image encoding.
+- Each final Admin state is paired directly with its corresponding exact `1920 × 1397` Figma reference in a side-by-side comparison artifact.
+
+Admin Dashboard phase files:
+
+- `screenshots/admin-dashboard-final-light.jpg`
+- `screenshots/admin-dashboard-final-dark.jpg`
+- `screenshots/admin-dashboard-final-light-empty.jpg`
+- `screenshots/admin-dashboard-final-dark-empty.jpg`
+- `screenshots/admin-dashboard-mobile-light.jpg`
+- `screenshots/admin-dashboard-mobile-dark.jpg`
+- `screenshots/admin-dashboard-light-comparison.png`
+- `screenshots/admin-dashboard-dark-comparison.png`
+- `screenshots/admin-dashboard-light-empty-comparison.png`
+- `screenshots/admin-dashboard-dark-empty-comparison.png`
+- `screenshots/admin-phase-superadmin-after.jpg`
+- `screenshots/admin-phase-superadmin-diff.png`
+
+## Admin Billing Figma parity acceptance
+
+`/admin/billing` was audited against all five `1920 × 1397` green/light frames in `Billing tab.svg` and all five green/dark counterparts in `Billing tab-1.svg`. No blue Superadmin billing or generic finance interface was used as a presentation reference.
+
+- TypeScript validation passes. The optimized Next.js production build passes and statically generates `/admin/billing` alongside all existing routes.
+- Final desktop geometry matches the Figma baseline: `330px` sidebar, `80px` topbar, `380px` content origin, `326 × 320` credit card, `29px` card gap, `1490 × 503` invoice card, `516px` standard-dialog width at `y=185`, and `652 × 1046` invoice dialog. The page footer finishes inside the `1397px` frame without creating a scrollbar.
+- Credit submission changed the scoped balance from `$0.00 USD` to `$50.00 USD`. Adding the deterministic mock `•••• 9911 (GBP)` method expanded the methods card instead of clipping the new row; setting it primary moved the visible primary state; confirming removal returned the organization to three methods.
+- Invoice pagination rendered two page-2 records with `Showing 11 to 12 of 12 entries`. View more opened the Figma invoice modal. Download PDF retained the Billing URL and resolved `/assets/admin/invoice-2024111834033.pdf`.
+- The PDF is a valid one-page PDF 1.4 document with the correct invoice number, total and exchange-rate disclaimer. Its raster render was visually inspected after correcting the Rate/Line total alignment and applying the green Orbit mark.
+- Modal focus starts on the announced dialog panel; Tab moves to Cancel, reverse Tab wraps to the last action, Escape dismisses, and focus restores to the originating View more control. Shared body scroll locking remained active while dialogs were open.
+- Desktop, `768 × 1024` tablet and `390 × 844` mobile checks passed. Mobile cards measure within the available width, invoice rows convert to labelled cards, the add-method dialog remains approximately `354px` wide, the invoice sheet scrolls only inside its modal, and document horizontal overflow is false in light and dark mode.
+- The final Billing interaction run and protected-route regression run returned empty browser diagnostic logs. Every visible payment/profile image completed with a non-zero natural width, and no page exposed an error alert.
+- Admin Dashboard, Admin eSIMs, Admin Customers, Superadmin Dashboard and Superadmin eSIMs were recaptured from the final production build with their approved headings, no missing images and zero document horizontal overflow. The remaining existing Superadmin routes were also reopened and checked for their approved heading and zero overflow; Billing styles remain route-scoped.
+
+Each light and dark screenshot was paired directly with its corresponding Figma frame. The in-app capture surface exposes the common top `1920 × 1338` pixels of the `1920 × 1397` CSS viewport; the comparison manifest records that crop explicitly. Across the ten shared regions, mean absolute channel deltas are `1.975–4.958 / 255`, and `94.19–97.138%` of pixels remain within `16` levels per channel. Direct visual inspection confirms matching panel geometry, overlay, card/table placement and state-specific content.
+
+Admin Billing phase files:
+
+- `screenshots/admin-billing-default-light.png`
+- `screenshots/admin-billing-add-credit-light.png`
+- `screenshots/admin-billing-remove-payment-light.png`
+- `screenshots/admin-billing-add-payment-method-light.png`
+- `screenshots/admin-billing-invoice-light.png`
+- `screenshots/admin-billing-default-dark.png`
+- `screenshots/admin-billing-add-credit-dark.png`
+- `screenshots/admin-billing-remove-payment-dark.png`
+- `screenshots/admin-billing-add-payment-method-dark.png`
+- `screenshots/admin-billing-invoice-dark.png`
+- `screenshots/admin-billing-*-comparison.png`
+- `screenshots/admin-billing-visual-comparison.json`
+- `screenshots/admin-billing-mobile-light.png`
+- `screenshots/admin-billing-mobile-invoices-light.png`
+- `screenshots/admin-billing-tablet-light.png`
+- `screenshots/regression-admin-dashboard-after-admin-billing.png`
+- `screenshots/regression-admin-esims-after-admin-billing.png`
+- `screenshots/regression-admin-customers-after-admin-billing.png`
+- `screenshots/regression-superadmin-dashboard-after-admin-billing.png`
+- `screenshots/regression-superadmin-esims-after-admin-billing.png`
+
+## Admin Networks Figma parity acceptance
+
+The Admin Networks frame inventory was completed before UI work. `Networks tab.svg` contains the green/light Regions and Network operators frames; `Networks tab-2.svg` contains their green/dark counterparts. The blue `Networks tab-1.svg` and `Networks tab-3.svg` exports were excluded, and no modal, drawer, loading, empty, error, toggle or row-action state exists in the supplied Admin frames.
+
+- `/admin/networks` reproduces the exact Regions title, eight geographic tabs, separate Search button, Export excel action, COUNTRY/ISO3/ISO2/APN NAME/AUTO APN/WI-FI HOTSPOT table, nine supplied first-page rows, entries copy and two-page pagination.
+- `/admin/networks/operators` reproduces the distinct tab-free operator frame, COUNTRY/ISO3/NETWORK/LOGO/PLMN/MCCMNC/3G/4G LTE/5G columns, eight supplied first-page rows and exact embedded Ooredoo, Andorra Telecom, FLOW, Movistar, MTS, Setar and Optus assets.
+- Both desktop cards match the Figma coordinates at `x=380`, `y=276`, `width=1490`; Regions is `742px` high and Network operators is `683px` high. Sidebar, topbar, title, footer and green Admin identity remain inherited from the approved shell.
+- Canonical Country, Operator and Network records are resolved through organization-guarded repository selectors. No Admin fixture import, duplicated identity field or Superadmin visual component is used by the page.
+- Search was exercised on both catalogs; page 2 rendered the remaining records with `Showing 11 to 12 of 12 entries`; geographic click and Arrow-key tab selection updated the URL; Export excel completed without navigation or runtime failure.
+- The optimized production build and explicit TypeScript check pass. Both routes are statically generated within the 23-page build output.
+- Desktop `1920 × 1397`, tablet `768 × 1024` and mobile `390 × 844` checks passed. Light and supplied dark values were verified directly, operator images loaded, and every tested view reported zero document horizontal overflow.
+- The production render exposed no Next error portal, missing image or failed route. Development and production route logs contained successful responses only.
+- Admin Dashboard, Admin eSIMs, Admin Customers, Admin Billing and all existing Superadmin destinations were reopened after the change. Approved headings, images and overflow behavior remained intact; representative protected views were recaptured.
+
+The in-app capture surface records the common top `1920 × 1338` pixels of the `1920 × 1397` CSS viewport. Direct Figma comparisons report mean absolute channel deltas of `2.200–3.669 / 255`, with `95.864–97.148%` of pixels within `16` levels per channel. Visual inspection confirms the matching shell geometry, selected navigation, title/tab placement, cards, table density, columns, rows, flags, exact operator logos, pills, controls and pagination.
+
+Admin Networks phase files:
+
+- `screenshots/admin-networks-regions-light.png`
+- `screenshots/admin-networks-operators-light.png`
+- `screenshots/admin-networks-regions-dark.png`
+- `screenshots/admin-networks-operators-dark.png`
+- `screenshots/admin-networks-regions-light-comparison.png`
+- `screenshots/admin-networks-operators-light-comparison.png`
+- `screenshots/admin-networks-regions-dark-comparison.png`
+- `screenshots/admin-networks-operators-dark-comparison.png`
+- `screenshots/admin-networks-visual-comparison.json`
+- `screenshots/regression-admin-dashboard-after-admin-networks.png`
+- `screenshots/regression-admin-esims-after-admin-networks.png`
+- `screenshots/regression-admin-customers-after-admin-networks.png`
+- `screenshots/regression-admin-billing-after-admin-networks.png`
+- `screenshots/regression-superadmin-dashboard-after-admin-networks.png`
+- `screenshots/regression-superadmin-esims-after-admin-networks.png`
+
+## Persistent collapsible sidebar acceptance
+
+The shell-only sidebar enhancement was verified without altering route content, domain state, mutations or entity relationships.
+
+- Before implementation, expanded light captures were taken at a `1920 × 1397` CSS viewport for Superadmin Dashboard, eSIMs, Networks and Brand-VNO plus Admin Dashboard, eSIMs, Customers, Billing and Networks. Each measured the approved `330px` sidebar and zero document horizontal overflow.
+- After implementation, the same nine expanded views were recaptured. Each retained the `330px` desktop geometry and zero overflow; direct image comparison confirms the page and shell content remain visually unchanged apart from the intentional `30px` collapse control. Dynamic chart/emoji capture pixels account for the small remaining encoded-image deltas.
+- All nine compact captures measure a `92px` rail and `92px` main-content origin with zero horizontal overflow. Superadmin retains blue active/hover treatment and Admin retains green treatment. The single mounted `146px` wordmark clips to its first `50px`, producing the actual Orbit `O` with no crossfade or duplicate glyph.
+- Superadmin and Admin preferences persist independently. A production refresh with Admin collapsed measured `92px` both immediately after document load and after hydration; the hydrated control announced `Expand Admin navigation`, confirming the bootstrap prevents a layout flash while React synchronizes semantics.
+- At `1024px`, compact Admin measured `92px` and expanded Admin measured `272px`, both with zero overflow. At `390 × 844`, both stored preferences yielded the unchanged hidden `280px` off-canvas drawer, no collapse control, full labels and zero overflow; nested items expanded inline rather than opening desktop flyouts.
+- Collapsed Subtenants and both Networks groups opened anchored product-coloured flyouts with no overflow. Trigger focus opened the matching tooltip; flyout Escape dismissal restored trigger focus. Arrow/Home/End and logical Tab exit behavior are implemented in the shared primitive, and hidden inline submenus are inert.
+- Light and dark collapsed checks passed in both application boundaries. Dark flyout surfaces resolved to `rgb(51, 51, 51)` with the correct blue/green interaction treatment. Reduced-motion rules disable tooltip/flyout animation and reduce the coordinated shell sequence to `.01ms`.
+- Representative collapsed overlays were exercised: Superadmin profile dropdown, Superadmin Add eSIM dialog and Admin Add Customer dialog all retained their focus-managed behavior and produced zero overflow. Route navigation and refresh retained the selected rail preference.
+- The final optimized Next.js build compiled all 23 routes, its integrated TypeScript pass succeeded, and the explicit `tsc --noEmit` check succeeded. A final production sweep reopened all Superadmin and Admin destinations; the representative desktop set retained `330px` expanded sidebars, no missing images, no Next error portal and zero horizontal overflow.
+
+Sidebar phase files:
+
+- `screenshots/sidebar-before-*-expanded-light.png`
+- `screenshots/sidebar-after-*-expanded-light.png`
+- `screenshots/sidebar-after-*-collapsed-light.png`
+- `screenshots/sidebar-after-superadmin-esims-collapsed-dark.png`
+- `screenshots/sidebar-after-admin-customers-collapsed-dark.png`
+- `screenshots/sidebar-production-superadmin-esims-collapsed-light.png`
+- `screenshots/sidebar-production-admin-customers-collapsed-light.png`
+
+## Admin Data Plans Figma parity acceptance
+
+The Admin Data Plans frame inventory was completed before implementation. `Data plans-1.svg` is the green/light source and `Data plans.svg` is its green/dark counterpart. The blue `Data plans tab.svg` and `Data plans tab-1.svg` Superadmin exports were excluded. The supplied Admin pair contains only the catalog state: there are no create, edit, delete, detail, modal, status, tab, filter, empty, loading, error or toast frames to implement.
+
+- `/admin/data-plans` reproduces the selected Admin navigation state, `Data plans` title, separate Search button, `Export excel`, compact REGION/ID/NAME/WSP/RRP/DATA (GB)/VALIDITY (DAYS)/WI-FI HOTSPOT/COVERAGE table, supplied repeated APAC rows, entries copy, two-page pagination and Admin footer.
+- Desktop measurement at the `1920 × 1397` CSS viewport reports the exact `380px` content/card origin, `1490px` card width and `742px` card height. The document has no horizontal overflow.
+- Light and dark desktop captures were directly paired with their corresponding Figma exports. Content-region mean absolute channel differences are `4.0684 / 255` light and `6.1648 / 255` dark; visual inspection confirms matching geometry, controls, columns, row density, pills and pagination. The approved existing shell was preserved instead of being rewritten to compensate for export-only raster differences.
+- Tablet and `390 × 844` light/dark checks report zero document horizontal overflow. Search and Export use the available width; the wide desktop table remains usable through its own horizontal scroll region, and the mobile Admin drawer remains the existing shell implementation.
+- Search updated the canonical URL to `?q=JW7`. Pagination rendered two page-2 rows with `Showing 11 to 12 of 12 entries`; browser Back and Forward restored page 1 and page 2. The Export excel command was invoked through the established shared download utility without navigation or a runtime error.
+- The searchbox has an explicit accessible label; Search, Export and pagination use native named buttons with disabled/current-page semantics. Existing Admin focus-visible, reduced-motion, skip-link and responsive-drawer foundations remain unchanged.
+- Plan rows resolve through `LocalOrbitRepository.resolveAdminDataPlanCatalog(adminSession.organizationId)` from canonical organization-scoped Plans and retain `planId`; the page imports no raw fixture data.
+- Explicit route generation, TypeScript validation and the optimized Next.js build pass. `/admin/data-plans` is statically generated in the 24-page build output.
+- Admin Dashboard, Admin eSIMs, Admin Customers, Admin Billing and Admin Networks were reopened and recaptured from the final production build. Each retained its approved heading, zero document overflow and an empty console warning/error log. Representative same-raster comparisons remain low-noise (`0.126 / 255` Dashboard, `0.356 / 255` Billing and `0.927 / 255` Networks mean absolute RGB difference); scoped Data Plans selectors do not alter protected layouts.
+- Superadmin Dashboard, eSIMs, Data Plans, Networks and Operations were also reopened from the final build. All retained their approved headings, zero document overflow and zero browser console warnings/errors.
+
+Admin Data Plans phase files:
+
+- `screenshots/admin-data-plans-light.png`
+- `screenshots/admin-data-plans-dark.png`
+- `screenshots/admin-data-plans-mobile-light.png`
+- `screenshots/admin-data-plans-mobile-dark.png`
+- `screenshots/admin-data-plans-light-comparison.png`
+- `screenshots/admin-data-plans-dark-comparison.png`
+- `screenshots/admin-data-plans-visual-comparison.json`
+- `screenshots/admin-dashboard-after-admin-data-plans.png`
+- `screenshots/admin-esims-after-admin-data-plans.png`
+- `screenshots/admin-customers-after-admin-data-plans.png`
+- `screenshots/admin-billing-after-admin-data-plans.png`
+- `screenshots/admin-networks-after-admin-data-plans.png`

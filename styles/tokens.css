@@ -18,6 +18,8 @@
   --orbit-color-success: #00cc77;
   --orbit-color-danger: #ff536d;
   --orbit-color-warning: #e7a62e;
+  --orbit-color-auth-brand: #8bc34a;
+  --orbit-color-auth-brand-strong: #7bb33b;
 
   /* Orbit geometry tokens */
   --orbit-shell-sidebar-width: 330px;

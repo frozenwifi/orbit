@@ -202,7 +202,22 @@
   .control-menu.open,
   .tabs-trigger[aria-selected="true"]::after,
   .tabs-panel,
-  .donut-copy {
+  .donut-copy,
+  .sidebar-nav-tooltip,
+  .sidebar-nav-flyout {
     animation: none !important;
+  }
+
+  .app-shell,
+  .sidebar,
+  .brand,
+  .sidebar-brand-clip,
+  .sidebar-nav,
+  .nav-button,
+  .nav-label,
+  .nav-chevron,
+  .sidebar-collapse-toggle,
+  .sidebar-collapse-toggle > span {
+    transition-duration: .01ms !important;
   }
 }

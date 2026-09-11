@@ -1,0 +1,226 @@
+.admin-data-plans-page {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  min-height: calc(100vh - var(--admin-topbar-height) - 2px);
+  flex-direction: column;
+  padding: 31px var(--admin-page-gutter) 0;
+}
+
+.admin-data-plans-page > .admin-footer { margin-top: auto; }
+
+.admin-data-plans-heading {
+  display: flex;
+  min-height: 46px;
+  align-items: flex-start;
+}
+
+.admin-data-plans-heading h1 {
+  margin: 0;
+  color: var(--admin-text-strong);
+  font-size: 31px;
+  font-weight: 600;
+  letter-spacing: -.6px;
+  line-height: 1.25;
+}
+
+.admin-data-plans-card {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  height: 742px;
+  margin-top: 15px;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 27px;
+}
+
+.admin-data-plans-toolbar {
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 29px 12px;
+}
+
+.admin-data-plans-toolbar form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-data-plans-search-field {
+  display: flex;
+  width: 293px;
+  height: 40px;
+  align-items: center;
+  gap: 13px;
+  padding: 0 14px;
+  border-radius: 9px;
+  background: #f6f7f9;
+  color: #aab2c1;
+  transition: box-shadow var(--orbit-motion-fast) ease, background var(--orbit-motion-medium) ease;
+}
+
+.admin-data-plans-search-field:focus-within { box-shadow: 0 0 0 3px color-mix(in srgb, var(--admin-accent) 18%, transparent); }
+
+.admin-data-plans-search-field input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--admin-text);
+  font-size: 12px;
+}
+
+.admin-data-plans-search-field input::placeholder { color: #aab2c1; }
+
+.admin-data-plans-search-icon {
+  position: relative;
+  display: block;
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  border: 1.6px solid currentColor;
+  border-radius: 50%;
+}
+
+.admin-data-plans-search-icon::after {
+  position: absolute;
+  right: -5px;
+  bottom: -3px;
+  width: 6px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: currentColor;
+  content: "";
+  transform: rotate(46deg);
+  transform-origin: left center;
+}
+
+.admin-data-plans-search-button {
+  display: grid;
+  width: 46px;
+  height: 40px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 9px;
+  background: var(--admin-accent);
+  color: #ffffff;
+  cursor: pointer;
+  transition: background var(--orbit-motion-fast) ease, transform var(--orbit-motion-fast) ease;
+}
+
+.admin-data-plans-search-button .admin-data-plans-search-icon { width: 12px; height: 12px; }
+.admin-data-plans-search-button:hover { background: var(--admin-accent-strong); transform: translateY(-1px); }
+
+.admin-data-plans-export {
+  width: 142px;
+  min-height: 40px;
+  height: 40px;
+  background: transparent;
+  color: var(--admin-accent-strong);
+}
+
+:root[data-theme="dark"] .admin-data-plans-search-field { background: #555555; color: #aaaaaa; }
+:root[data-theme="dark"] .admin-data-plans-search-field input::placeholder { color: #aaaaaa; }
+:root[data-theme="dark"] .admin-data-plans-export { border-color: var(--admin-accent); background: transparent; color: var(--admin-accent); }
+
+.admin-data-plans-table-scroll {
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+}
+
+.admin-data-plans-table {
+  width: 100%;
+  min-width: 1120px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.admin-data-plans-table th,
+.admin-data-plans-table td {
+  height: 58px;
+  padding: 0 12px;
+  border-bottom: 1px solid transparent;
+  color: var(--admin-muted);
+  font-size: 13px;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+:root[data-theme="dark"] .admin-data-plans-table td { border-bottom-color: var(--admin-line-soft); color: var(--admin-text); }
+
+.admin-data-plans-table th {
+  height: 48px;
+  color: var(--admin-text-strong);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.admin-data-plans-table th .admin-sort-mark { float: right; margin-right: 3px; }
+.admin-data-plans-table th:first-child,
+.admin-data-plans-table td:first-child { width: 10.8%; padding-left: 29px; }
+.admin-data-plans-table th:nth-child(2) { width: 11.5%; }
+.admin-data-plans-table th:nth-child(3) { width: 13.2%; }
+.admin-data-plans-table th:nth-child(4) { width: 9%; }
+.admin-data-plans-table th:nth-child(5) { width: 9%; }
+.admin-data-plans-table th:nth-child(6) { width: 9%; }
+.admin-data-plans-table th:nth-child(7) { width: 11%; }
+.admin-data-plans-table th:nth-child(8) { width: 11%; }
+.admin-data-plans-table th:nth-child(9) { width: 15.5%; }
+.admin-data-plans-table th:last-child,
+.admin-data-plans-table td:last-child { padding-right: 29px; }
+.admin-data-plans-table tbody tr { transition: background var(--orbit-motion-fast) ease; }
+.admin-data-plans-table tbody tr:hover { background: color-mix(in srgb, var(--admin-accent-pale) 35%, transparent); }
+
+.admin-data-plans-pill {
+  display: inline-grid;
+  min-width: 46px;
+  min-height: 30px;
+  padding: 0 11px;
+  place-items: center;
+  border-radius: 9px;
+  background: #f6f7f9;
+  color: var(--admin-text);
+  font-size: 10px;
+}
+
+.admin-data-plans-hotspot { min-width: 46px; }
+:root[data-theme="dark"] .admin-data-plans-pill { background: #444444; color: #f1f1f1; }
+
+.admin-data-plans-table-footer {
+  min-height: 78px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+@media (max-width: 980px) {
+  .admin-data-plans-card { height: auto; min-height: 742px; }
+}
+
+@media (max-width: 720px) {
+  .admin-data-plans-page { padding-top: 27px; }
+  .admin-data-plans-heading { min-height: 42px; }
+  .admin-data-plans-heading h1 { font-size: 27px; }
+  .admin-data-plans-card { margin-top: 15px; border-radius: 20px; }
+  .admin-data-plans-toolbar { min-height: 132px; align-items: stretch; flex-direction: column; gap: 12px; padding: 15px; }
+  .admin-data-plans-toolbar form { display: grid; grid-template-columns: minmax(0, 1fr) 48px; }
+  .admin-data-plans-search-field { width: 100%; }
+  .admin-data-plans-search-button { width: 48px; }
+  .admin-data-plans-export { width: 100%; }
+  .admin-data-plans-table-scroll { padding-bottom: 10px; }
+  .admin-data-plans-table-footer { grid-template-columns: 1fr; justify-items: center; gap: 18px; padding: 20px 16px; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .admin-data-plans-search-button,
+  .admin-data-plans-table tbody tr { transition: none; }
+}

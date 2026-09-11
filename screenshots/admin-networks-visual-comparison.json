@@ -1,0 +1,38 @@
+{
+  "regions-light": {
+    "figma": "light-01.png",
+    "capture_size": [
+      1920,
+      1338
+    ],
+    "mean_absolute_channel_delta": 2.2,
+    "pixels_within_16_levels_percent": 97.073
+  },
+  "operators-light": {
+    "figma": "light-02.png",
+    "capture_size": [
+      1920,
+      1338
+    ],
+    "mean_absolute_channel_delta": 2.666,
+    "pixels_within_16_levels_percent": 96.535
+  },
+  "regions-dark": {
+    "figma": "dark-01.png",
+    "capture_size": [
+      1920,
+      1338
+    ],
+    "mean_absolute_channel_delta": 2.464,
+    "pixels_within_16_levels_percent": 97.148
+  },
+  "operators-dark": {
+    "figma": "dark-02.png",
+    "capture_size": [
+      1920,
+      1338
+    ],
+    "mean_absolute_channel_delta": 3.669,
+    "pixels_within_16_levels_percent": 95.864
+  }
+}

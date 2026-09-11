@@ -18,6 +18,8 @@ const themeBootstrap = `
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
     if (theme === 'dark') document.body.classList.add('dark');
+    document.documentElement.dataset.orbitSidebar = localStorage.getItem('orbit-superadmin-sidebar') === 'collapsed' ? 'collapsed' : 'expanded';
+    document.documentElement.dataset.adminSidebar = localStorage.getItem('orbit-admin-sidebar') === 'collapsed' ? 'collapsed' : 'expanded';
   } catch (_) {}
 `;
 

@@ -361,12 +361,6 @@
 :root[data-theme="dark"] .network-region-tab { color: #878787; }
 :root[data-theme="dark"] .network-region-tab[aria-selected="true"] { color: var(--accent); }
 
-@media (max-width: 1180px) and (min-width: 721px) {
-  .nav-group { position: relative; }
-  .nav-submenu.expanded { position: absolute; top: 0; left: 72px; z-index: 90; width: 196px; max-height: 120px; padding: 8px; border: 1px solid var(--line); border-radius: 13px; background: var(--surface); box-shadow: var(--orbit-shadow-overlay); }
-  .nav-submenu-link { padding: 0 11px; }
-}
-
 @media (max-width: 980px) {
   .network-superadmin-page { padding-right: 28px; padding-left: 28px; }
   .network-region-tabs { min-width: 980px; }

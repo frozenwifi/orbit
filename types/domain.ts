@@ -11,6 +11,12 @@ export type EntityType = "customer" | "esim" | "plan" | "network";
 export type OperationStatus = "pending" | "processing" | "completed" | "failed" | "cancelled";
 export type OperationType = "esim_activation" | "esim_assignment" | "plan_assignment" | "top_up" | "suspension" | "reactivation" | "esim_created" | "customer_created";
 export type OperationEventStatus = "completed" | "processing" | "failed" | "pending";
+export type SubtenantKind = "brand-vno" | "business-roaming";
+export type SubtenantStatus = "Active" | "Blocked";
+export type InfluencerPlatform = "Instagram" | "TikTok" | "YouTube" | "X";
+export type TeamUserRole = "Admin" | "Manager";
+export type PaymentProvider = "Visa" | "Stripe";
+export type InvoiceStatus = "Paid";
 
 export interface Country {
   id: string;
@@ -89,6 +95,7 @@ export interface Plan {
   coverage: readonly PlanCoverage[];
   createdDate: string;
   updatedDate: string;
+  subtenantId?: string;
 }
 
 export interface ResolvedPlan extends Omit<Plan, "coverage"> {
@@ -137,6 +144,8 @@ export interface Customer {
   status: CustomerStatus;
   joinedDate: string;
   lifetimeSpend: number;
+  subtenantId?: string;
+  notes?: string;
 }
 
 export interface ResolvedCustomer extends Customer {
@@ -158,6 +167,7 @@ export interface ESim {
   activationDate: string;
   expiryDate: string;
   lastActivity: string;
+  subtenantId?: string;
 }
 
 export interface Operation {
@@ -175,6 +185,7 @@ export interface Operation {
   errorMessage?: string;
   failedStep?: string;
   retryOfOperationId?: string;
+  subtenantId?: string;
 }
 
 export interface OperationEvent {
@@ -192,10 +203,153 @@ export interface ApiApplication {
   apiKey: string;
   apiSecret: string;
   createdAt: string;
+  subtenantId?: string;
+}
+
+export interface BillingAccount {
+  id: string;
+  subtenantId: string;
+  creditBalance: number;
+  currency: "USD";
+}
+
+export interface PaymentMethod {
+  id: string;
+  subtenantId: string;
+  provider: PaymentProvider;
+  last4: string;
+  currency: "GBP";
+  expiryMonth: string;
+  expiryYear: string;
+  nameOnCard: string;
+  isPrimary: boolean;
+  createdAt: string;
+}
+
+export interface InvoiceParty {
+  name: string;
+  addressLines: readonly string[];
+  taxId?: string;
+}
+
+export interface InvoiceLine {
+  id: string;
+  description: string;
+  quantity: number;
+  rate: number;
+  lineTotal: number;
+}
+
+export interface Invoice {
+  id: string;
+  subtenantId: string;
+  invoiceNumber: string;
+  reference: string;
+  invoiceDate: string;
+  dueDate: string;
+  tableDate: string;
+  status: InvoiceStatus;
+  currency: "USD";
+  tableTotalDue: number;
+  billedTo: InvoiceParty;
+  billedFrom: InvoiceParty;
+  issuer: InvoiceParty;
+  lines: readonly InvoiceLine[];
+  subtotal: number;
+  taxRate: number;
+  tax: number;
+  totalDue: number;
+  paymentNote: string;
+  exchangeRateDisclaimer: string;
+}
+
+export interface Subtenant {
+  id: string;
+  name: string;
+  kind: SubtenantKind;
+  status: SubtenantStatus;
+  balance: number;
+  billingAddress: string;
+  email: string;
+  taxId: string;
+  type: string;
+  pricingCategory: string;
+  salesTargetPercent: number;
+  monthlyClientChange: number;
+  monthlyEsimChange: number;
+  discountPercent?: number;
+  createdAt: string;
+}
+
+export interface Influencer {
+  id: string;
+  subtenantId?: string;
+  name: string;
+  platform: InfluencerPlatform;
+  email: string;
+  affiliateLink: string;
+  clicks: number;
+  conversionRate: number;
+  registrationFee: number;
+  totalEarnings: number;
+  currency: CurrencyCode;
+}
+
+export interface TeamUserPermissions {
+  manageEsims: boolean;
+  manageBilling: boolean;
+  manageApiKeys: boolean;
+  manageUsers: boolean;
+}
+
+export interface TeamUser {
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+  role: TeamUserRole;
+  permissions: TeamUserPermissions;
+  createdAt: string;
+  passwordRecoveryRequestedAt?: string;
+}
+
+export interface NewTeamUserInput {
+  name: string;
+  email: string;
+  password: string;
+  role: TeamUserRole;
+  permissions: TeamUserPermissions;
+}
+
+export interface NewSubtenantInput {
+  name: string;
+  kind: SubtenantKind;
+  billingAddress: string;
+  email: string;
+  taxId: string;
+  type: string;
+  pricingCategory: string;
+  discountPercent?: number;
+}
+
+export interface NewInfluencerInput {
+  name: string;
+  platform: InfluencerPlatform;
+  email: string;
+  registrationFee: number;
+  clickRate: number;
+  subtenantId?: string;
 }
 
 export interface NewApiApplicationInput {
   name: string;
+}
+
+export interface NewPaymentMethodInput {
+  cardNumber: string;
+  expiryDate: string;
+  securityCode: string;
+  nameOnCard: string;
 }
 
 export interface NewCustomerInput {
@@ -207,6 +361,7 @@ export interface NewCustomerInput {
   status?: CustomerStatus;
   joinedDate?: string;
   lifetimeSpend?: number;
+  notes?: string;
 }
 
 export interface NewEsimInput {
